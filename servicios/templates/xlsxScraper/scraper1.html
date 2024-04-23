@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data from Excel</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <!-- Generate column headers dynamically -->
+                {% for header in datos.0 %}
+                    <th>{{ header }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in datos %}
+                <tr>
+                    <!-- Print row number at the beginning of each row -->
+                    <td>{{ forloop.counter }}</td>
+                    <!-- Iterate over each column in the row -->
+                    {% for cell in row %}
+                        <td>{{ cell }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
